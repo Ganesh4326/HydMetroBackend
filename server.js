@@ -58,7 +58,10 @@ app.post("/signup", async (req, res) => {
       if (data.password === data.repassword) {
         try {
           await collection.insertMany([data]);
-          res.json("ok");
+          res.json({
+            status: "loginSuccess",
+            firstname:firstname 
+          });
         } catch (e) {
           console.log(e);
         }
